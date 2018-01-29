@@ -1,0 +1,30 @@
+{
+  "short_name": "parcsinfo",
+  "name": "Parcs info 2018",
+  "icons": [
+    {
+      "src": "squelettes/images/logo-simple@1x.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "squelettes/images/logo-simple@2x.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "squelettes/images/logo_vert128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "squelettes/images/logo-simple@3x.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }
+  ],
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#5C3261",
+  "display": "standalone",
+  "theme_color": "#d4cb13"
+}

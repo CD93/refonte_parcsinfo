@@ -1,0 +1,14 @@
+/node_modules
+/ressources
+/spip
+!/spip
+/spip/*
+!/spip/sw.js
+!/spip/manifest.json
+!/spip/squelettes
+/spip/config
+!/spip/config
+/spip/config/*
+!/spip/config/mes_options.php
+**/css/styles.css
+.DS_Store
