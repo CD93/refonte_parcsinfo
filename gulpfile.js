@@ -21,8 +21,8 @@ gulp.task('sass', function(){
         }))
 });
 gulp.task('watch',['browserSync','sass'], function(){
-  gulp.watch('spip/squelettes/scss/*.scss', ['sass']); 
-  gulp.watch('spip/squelettes/**/*.html', ['clear',browserSync.reload]); 
+  gulp.watch('spip/squelettes/scss/*.scss', ['sass']);
+  gulp.watch('spip/squelettes/**/*.html', ['clear',browserSync.reload]);
   gulp.watch('spip/squelettes/js/**/*.js', browserSync.reload);
   // autres observations
 });
@@ -49,7 +49,7 @@ gulp.task('images', function(){
 });
 gulp.task('browserSync', function() {
   browserSync({
-    proxy: "http://mdph:80"
+    proxy: "http://parcs2018:80"
   })
 });
 gulp.task('autoprefixer',function() {
@@ -164,4 +164,3 @@ gulp.task('run', function (callback) {
   callback
   )
 });
-
