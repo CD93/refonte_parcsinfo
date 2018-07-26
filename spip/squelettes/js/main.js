@@ -15,9 +15,11 @@ var app = new Vue({
   el: '#app',
   data() {
     return {
-      id_parc: '',
-      info: '',
+      id_parc: '1',
+      agenda: [],
       id_theme:[],
+      encours: true,
+      avenir: false,
       carte: null,
       points: null,
       titre: "Chargement...",
@@ -29,25 +31,7 @@ var app = new Vue({
   },
   mounted() {
     this.initMap();
-    this.id_travaux = 43;
-    var vm = this
-    axios
-    axios
-    .get('http://parcs2018/api/agenda/encours',{
-      params: {
-        id_parc: vm.id_parc,
-      }
-    })
-    .then(function(response){
-      vm.loading = false; 
-      vm.enAttente = false;
-      vm.tout = response.data;
-      vm.meta=false;
-      vm.categories = response.data.subCategories;
-      vm.documents = response.data.members;
-      vm.idCatParent = response.data.nodeCategoryParent;
-    })
-    .catch(error => console.log(error))
+    this.evenementEnCours();
    },
   computed: {
   },
@@ -66,10 +50,42 @@ var app = new Vue({
     viderCarte() {
         this.myLayer.clearLayers();
       },
-    idchantier() {
-      this.params = new URLSearchParams(document.location.search.substring(1));
-      return this.params.get("id_chantier");
-    }
+    evenementAVenir() {
+      this.avenir=true;
+      this.encours= false;
+      var vm = this
+      axios
+      axios
+      .get('https://parcs2018.local/?page=agenda_avenir',{
+       params: {
+         id_article: vm.id_parc,
+       }
+     })
+      .then(function(response){
+       vm.loading = false; 
+       vm.enAttente = false;
+       vm.agenda = response.data;
+     })
+     .catch(error => console.log(error))
+     },
+     evenementEnCours() {
+      this.avenir=false;
+      this.encours= true;
+      var vm = this
+      axios
+      axios
+      .get('https://parcs2018.local/?page=agenda_encours',{
+       params: {
+         id_article: vm.id_parc,
+       }
+     })
+      .then(function(response){
+       vm.loading = false; 
+       vm.enAttente = false;
+       vm.agenda = response.data;
+     })
+     .catch(error => console.log(error))
+     }
     }
   }
 )

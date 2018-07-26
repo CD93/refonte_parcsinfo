@@ -9,7 +9,7 @@ var sourcemaps = require('gulp-sourcemaps');
 gulp.task('serve', ['sass'], function() {
 
     browserSync.init({
-        proxy: "parcs2018.local"
+        proxy: "https://parcs2018.local"
     });
 
     gulp.watch("spip/squelettes/scss/*.scss", ['sass']);

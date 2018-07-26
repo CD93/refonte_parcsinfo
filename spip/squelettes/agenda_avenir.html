@@ -1,12 +1,12 @@
 #HTTP_HEADER{Content-type:application/json}
 [<BOUCLE_ev(EVENEMENTS)
-{evenement_a_venir}{', '}>
+{evenement_a_venir}{id_article ?}{', '}{par date}>
 [(#ARRAY{
 id,#ID_EVENEMENT,
-title,[(#TITRE|html2unicode|unicode2charset|textebrut)],
-allDay,[(#HORAIRE|=={oui}|non)],
-start,#DATE_DEBUT,
-end,#DATE_FIN,
+titre,[(#TITRE|html2unicode|unicode2charset|textebrut)],
+journee,#HORAIRE,
+debut,[(#DATE_DEBUT|affdate)],
+fin,[(#DATE_FIN|affdate)],
 url,#URL_EVENEMENT*,
 description,[(#DESCRIPTIF|html2unicode|unicode2charset)]
 }|json_encode)]</BOUCLE_ev>]

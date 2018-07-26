@@ -10,7 +10,15 @@
         <div id="entete">
             <span v-if="chargement" class="loading"></span>
             <div id="contenu">
-            <h1>{{titre}}</h1>
+            <h1>agenda</h1>
+            <button @click="evenementAVenir();" v-show="encours">À venir</button>
+            <button @click="evenementEnCours();" v-show="avenir">en cours</button>
+            <ul>
+                <li v-for="evenement of agenda">
+                    {{evenement.titre}}
+                    du {{evenement.debut}} au {{evenement.fin}} ({{evenement.journee}})
+                </li>
+            </ul>
                 <div id="map"></div>
             </div>   
             <div id="footer"></div>
